@@ -7,7 +7,14 @@ class UserProfileInfo(models.Model):
 
     portfolio_site = models.URLField(blank=True)
 
-    profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
+    profile_pic = models.ImageField(upload_to='profile_pics/', blank=True)
 
     def __str__(self):
         return self.user.username
+
+class Upload(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='profile_pics/')
+
+    def __str__(self):
+        return self.title
